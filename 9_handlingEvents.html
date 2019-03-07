@@ -22,21 +22,38 @@
       // img.onclick = showAnswer;
 
       // updating to grab all images at once
-      var images=document.getElementsByTagName('img');
+      var images = document.getElementsByTagName('img');
       // iterate through the nodelist and assign each image click event the showAnswer handler
       for (var i = 0; i < images.length; i++) {
-        images[i].onclick=showAnswer;
+        images[i].onclick = showAnswer;
       }
 
     }
 
     // passing the showAnswer an event obj
     function showAnswer(event) {
-      var image=event.target;
-      var name=image.id;
+      //grabbing the exact image that generated the event
+      var image = event.target;
+      //grabbing its id e.g "zero"
+      var name = image.id;
 
-      name="img/" + name + ".jpg";
-      image.src=name;
+      //concatenating the img path and changing its src to link to the unblurred image
+      name = "img/" + name + ".jpg";
+      image.src = name;
+
+      //timeOut func to reblur the image after 2s
+      setTimeout(reblur, 2000, image);
+
+    }
+
+    //pass it the target img
+    function reblur(image) {
+      //grab its id eg "zero"
+      var name = image.id;
+      console.log(name, "name");
+      //concanete to reference the path of a blurred equivalent img
+      name = "img/" + name + "blur.jpg";
+      image.src = name;
 
     }
   </script>
