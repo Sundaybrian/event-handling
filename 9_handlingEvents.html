@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Handling Events</title>
+    <script>
+      window.onload=init;
+
+      function init(){
+      var img=document.getElementById("zero");
+      console.log(img);
+      img.onclick=showAnswer;
+      }
+
+      function showAnswer(){
+        var img=document.getElementById("zero");
+        img.src="img/zero.jpg"
+      }
+    </script>
+  </head>
+  <body>
+  <img src="img/zeroblur.jpg" id="zero" alt="">
+  </body>
+</html>
